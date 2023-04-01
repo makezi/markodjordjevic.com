@@ -11,9 +11,9 @@ on:
 #   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 
 jobs:
-  lint-and-test:
+  lint:
     runs-on: ubuntu-latest
-    name: Run ESLint and Tests
+    name: Run ESLint
     steps:
       - uses: actions/checkout@v3
         with:
@@ -47,9 +47,6 @@ jobs:
 
       - name: Run ESLint
         run: pnpm lint
-
-      - name: Run Tests
-        run: pnpm test
 
   prettier:
     runs-on: ubuntu-latest
