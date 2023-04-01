@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write . --ignore-path .gitignore --ignore-unknown --no-error-on-unmatched-pattern",
-    "format:check": "pnpm format --check"
+    "format:check": "pnpm format --check",
+    "typecheck": "tsc --noEmit",
+    "test": ""
   },
   "dependencies": {
     "@types/node": "18.15.11",
