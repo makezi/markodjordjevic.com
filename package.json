@@ -11,7 +11,6 @@
     "format": "prettier --write . --ignore-path .gitignore --ignore-unknown --no-error-on-unmatched-pattern",
     "format:check": "pnpm format --check",
     "typecheck": "tsc --noEmit",
-    "test": "",
     "prepare": "husky install"
   },
   "dependencies": {
