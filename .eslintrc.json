@@ -4,14 +4,23 @@
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "prettier"
-    // "plugin:tailwindcss/recommended"
+    "prettier",
+    "plugin:tailwindcss/recommended"
   ],
   "parserOptions": {
     "project": "tsconfig.json"
   },
   "rules": {
+    // Next
     "@next/next/no-html-link-for-pages": "off",
+
+    // Typescript
+    "@typescript-eslint/no-unsafe-argument": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/no-unsafe-return": "off",
+    "@typescript-eslint/no-unnecessary-type-assertion": "off",
 
     // Import
     "import/namespace": "off",
