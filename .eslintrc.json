@@ -10,6 +10,11 @@
   "parserOptions": {
     "project": "tsconfig.json"
   },
+  "settings": {
+    "tailwindcss": {
+      "callees": ["cn"]
+    }
+  },
   "rules": {
     // Next
     "@next/next/no-html-link-for-pages": "off",
