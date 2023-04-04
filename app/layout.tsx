@@ -1,11 +1,11 @@
 import './global.css';
-import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 
 import { cn } from '@/lib/utils';
+import { Header } from '@/components/header/header';
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400', '700'],
   display: 'swap'
 });
 
@@ -23,8 +23,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn('bg-zinc-950', inter.className)}>
-      <body>{children}</body>
+    <html
+      lang="en"
+      className={cn('bg-background text-neutral-200', montserrat.className)}
+    >
+      <body className="max-w-5xl lg:mx-auto">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
