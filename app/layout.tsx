@@ -1,5 +1,6 @@
 import './global.css';
 import { Montserrat } from 'next/font/google';
+import type { Metadata } from 'next';
 
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header/header';
@@ -9,7 +10,7 @@ const montserrat = Montserrat({
   display: 'swap'
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: 'Marko Djordjevic',
     template: '%s | Marko Djordjevic'
@@ -29,7 +30,7 @@ export default function RootLayout({
     >
       <body className="max-w-5xl lg:mx-auto">
         <Header />
-        {children}
+        <main>{children}</main>
       </body>
     </html>
   );
