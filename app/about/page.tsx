@@ -1,0 +1,78 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'About'
+};
+
+export default function AboutPage() {
+  return (
+    <section className="prose mx-auto max-w-4xl">
+      <h1>About Me</h1>
+
+      <p>
+        Hey, I'm Marko Djordjevic. But you can call me <strong>makezi</strong>{' '}
+        if you'd like.
+      </p>
+
+      <p>WORK HERE</p>
+
+      <p>
+        Outside of work in my free time, I like playing video games (Dota 2,
+        Apex Legends), eating ramen, working out, swimming, eating more ramen
+        (please help me) and the occassional drawing! I've also started picking
+        up bouldering, Brazilian jiu-jitsu, and writing{' '}
+        <Link href="/blog">content</Link> of my web development experiences.
+      </p>
+
+      <div>
+        <h2>FAQ</h2>
+
+        <h3>Why is your nickname "makezi" and how do you pronounce it?</h3>
+        <p>
+          My nickname was given to me by my uncle on my dad's side when I was a
+          child. I've heard many pronounciations such as "Mac-Air-Zee" and
+          "Mac-E-Zee", but the proper way to pronounce it is "Mar-Care-Zee".
+          Either way, I'm not too fussed.
+        </p>
+
+        <h3>When did you start coding?</h3>
+        <p>
+          Started coding in 10th grade by making a fighting game in{' '}
+          <Link href="https://gamemaker.io/en">GameMaker</Link> based on Dragon
+          Ball Z (loved watching that show before school growing up and still a
+          huge fan ❤️). I then kept coding video games through the rest of high
+          school (from GameMaker to <Link href="https://unity.com/">Unity</Link>
+          ) and did it in parallel whilst I learned Java and C# during my
+          Bachelors in Computer Science. Finally I moved onto web development,
+          building lots and lots and lots of things whilst I studied my Masters
+          of IT, majoring in Web Development.
+        </p>
+        <p>
+          <strong>TLDR:</strong> Started in high school and just kept building
+          things!
+        </p>
+
+        <h3>What code editor do you use?</h3>
+        <p>
+          Currently using{' '}
+          <Link href="https://code.visualstudio.com/">VSCode</Link> with the{' '}
+          <Link href="https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme">
+            Github Dark Default
+          </Link>{' '}
+          theme and <Link href="https://www.monolisa.dev/">MonoLisa</Link> font.
+        </p>
+
+        <h3>What rank are you in Dota 2 and Apex Legends?</h3>
+        <p>
+          For Dota 2, I'm currently hovering between 4 and 5 star divine.
+          Immortal has escaped me many times 🥹.
+        </p>
+        <p>
+          As for Apex Legends (PS5), I usually get to Diamond II-IV then get
+          stomped by Predators on my way to Masters.
+        </p>
+      </div>
+    </section>
+  );
+}
