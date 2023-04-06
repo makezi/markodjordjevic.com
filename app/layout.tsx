@@ -5,6 +5,7 @@ import localFont from 'next/font/local';
 
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header/header';
+import { Footer } from '@/components/footer';
 
 const calSans = localFont({
   src: '../public/fonts/cal-sans-semibold.woff2',
@@ -43,6 +44,8 @@ export default function RootLayout({
       <body className="max-w-5xl lg:mx-auto">
         <Header />
         <main>{children}</main>
+        <div className="h-40" />
+        <Footer />
       </body>
     </html>
   );

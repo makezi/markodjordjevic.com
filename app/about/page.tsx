@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About'
@@ -7,7 +6,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <section className="prose mx-auto max-w-4xl">
+    <section className="prose mx-6vw max-w-4xl">
       <h1>About Me</h1>
 
       <p>
@@ -22,7 +21,10 @@ export default function AboutPage() {
         Apex Legends), eating ramen, working out, swimming, eating more ramen
         (please help me) and the occassional drawing! I've also started picking
         up bouldering, Brazilian jiu-jitsu, and writing{' '}
-        <Link href="/blog">content</Link> of my web development experiences.
+        <a href="/blog" rel="noopener noreferrer" target="_blank">
+          content
+        </a>{' '}
+        of my web development experiences.
       </p>
 
       <div>
@@ -39,10 +41,23 @@ export default function AboutPage() {
         <h3>When did you start coding?</h3>
         <p>
           Started coding in 10th grade by making a fighting game in{' '}
-          <Link href="https://gamemaker.io/en">GameMaker</Link> based on Dragon
-          Ball Z (loved watching that show before school growing up and still a
-          huge fan ❤️). I then kept coding video games through the rest of high
-          school (from GameMaker to <Link href="https://unity.com/">Unity</Link>
+          <a
+            href="https://gamemaker.io/en"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            GameMaker
+          </a>{' '}
+          based on Dragon Ball Z (loved watching that show before school growing
+          up and still a huge fan ❤️). I then kept coding video games through
+          the rest of high school (from GameMaker to{' '}
+          <a
+            href="https://unity.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Unity
+          </a>
           ) and did it in parallel whilst I learned Java and C# during my
           Bachelors in Computer Science. Finally I moved onto web development,
           building lots and lots and lots of things whilst I studied my Masters
@@ -56,11 +71,30 @@ export default function AboutPage() {
         <h3>What code editor do you use?</h3>
         <p>
           Currently using{' '}
-          <Link href="https://code.visualstudio.com/">VSCode</Link> with the{' '}
-          <Link href="https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme">
+          <a
+            href="https://code.visualstudio.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            VSCode
+          </a>{' '}
+          with the{' '}
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Github Dark Default
-          </Link>{' '}
-          theme and <Link href="https://www.monolisa.dev/">MonoLisa</Link> font.
+          </a>{' '}
+          theme and{' '}
+          <a
+            href="https://www.monolisa.dev/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            MonoLisa
+          </a>{' '}
+          font.
         </p>
 
         <h3>What rank are you in Dota 2 and Apex Legends?</h3>
