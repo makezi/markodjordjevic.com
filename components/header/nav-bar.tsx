@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
+import { TwitterIcon, GithubIcon } from '@/components/icons';
 import { cn } from '@/lib/utils';
 
 const navItems = {
@@ -16,6 +17,10 @@ const navItems = {
     name: 'About'
   }
 };
+
+const navLinkClass = cn(
+  'font-heading text-lg text-neutral-400 transition-all hover:text-neutral-300'
+);
 
 export function NavBar() {
   let pathname = usePathname() || '/';
@@ -34,12 +39,9 @@ export function NavBar() {
             <li key={path} className="relative px-4 py-2">
               <Link
                 href={path}
-                className={cn(
-                  'font-heading text-lg text-neutral-400 transition-all hover:text-neutral-300',
-                  {
-                    'text-neutral-300': isActive
-                  }
-                )}
+                className={cn(navLinkClass, {
+                  'text-neutral-300': isActive
+                })}
               >
                 <span>{name}</span>
                 {isActive ? (
@@ -53,6 +55,28 @@ export function NavBar() {
             </li>
           );
         })}
+
+        <li className="relative px-4 py-2">
+          <a
+            href="https://twitter.com/makezid"
+            className={navLinkClass}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <TwitterIcon />
+          </a>
+        </li>
+
+        <li className="relative px-4 py-2">
+          <a
+            href="https://github.com/makezi"
+            className={navLinkClass}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <GithubIcon />
+          </a>
+        </li>
       </ul>
     </nav>
   );
