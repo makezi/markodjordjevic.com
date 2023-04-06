@@ -11,9 +11,50 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: colors.zinc[950]
+        background: colors.zinc[900]
+      },
+      fontFamily: {
+        body: ['var(--font-montserrat)'],
+        heading: ['var(--font-cal-sans)']
+      },
+      typography: (theme) => {
+        console.log('theme:', theme('fontSize'));
+
+        return {
+          DEFAULT: {
+            css: {
+              color: theme('colors.neutral.400'),
+              fontSize: theme('fontSize.lg'),
+              'p, span, strong': {
+                color: theme('colors.neutral.400'),
+                fontFamily: theme('fontFamily.body')
+              },
+              a: {
+                color: theme('colors.neutral.300'),
+                fontFamily: theme('fontFamily.body'),
+                fontWeight: '700'
+              },
+              strong: {
+                fontWeight: '700'
+              },
+              'h1, h2, h3, h4, h5, h6': {
+                color: theme('colors.neutral.300'),
+                fontFamily: theme('fontFamily.heading')
+              },
+              h1: {
+                fontSize: theme('fontSize.5xl')
+              },
+              h2: {
+                fontSize: theme('fontSize.4xl')
+              },
+              h3: {
+                fontSize: theme('fontSize.2xl')
+              }
+            }
+          }
+        };
       }
     }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/typography')]
 };
