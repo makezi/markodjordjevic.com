@@ -35,9 +35,9 @@ export function NavBar() {
               <Link
                 href={path}
                 className={cn(
-                  'font-medium text-neutral-500 transition-all hover:text-neutral-200',
+                  'font-heading text-lg text-neutral-400 transition-all hover:text-neutral-300',
                   {
-                    'text-neutral-200': isActive
+                    'text-neutral-300': isActive
                   }
                 )}
               >
@@ -45,7 +45,7 @@ export function NavBar() {
                 {isActive ? (
                   <div
                     className={cn(
-                      'absolute inset-0 -z-10 h-full rounded-lg bg-zinc-900'
+                      'absolute inset-0 -z-10 h-full rounded-lg bg-zinc-800'
                     )}
                   />
                 ) : null}
