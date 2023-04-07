@@ -31,7 +31,7 @@ export function NavBar() {
 
   return (
     <nav>
-      <ul className="flex items-center justify-between transition-all">
+      <ul className="-ml-4 flex items-center space-x-2 transition-all lg:ml-0">
         {Object.entries(navItems).map(([path, { name }]) => {
           const isActive = path === pathname;
 
@@ -56,27 +56,29 @@ export function NavBar() {
           );
         })}
 
-        <li className="relative px-4 py-2">
-          <a
-            href="https://twitter.com/makezid"
-            className={navLinkClass}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <TwitterIcon />
-          </a>
-        </li>
+        <div className="hidden items-center sm:flex">
+          <li className="relative px-4 py-2">
+            <a
+              href="https://twitter.com/makezid"
+              className={navLinkClass}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <TwitterIcon />
+            </a>
+          </li>
 
-        <li className="relative px-4 py-2">
-          <a
-            href="https://github.com/makezi"
-            className={navLinkClass}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <GithubIcon />
-          </a>
-        </li>
+          <li className="relative px-4 py-2">
+            <a
+              href="https://github.com/makezi"
+              className={navLinkClass}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <GithubIcon />
+            </a>
+          </li>
+        </div>
       </ul>
     </nav>
   );

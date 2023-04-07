@@ -41,10 +41,9 @@ export default function RootLayout({
         inter.variable
       )}
     >
-      <body className="max-w-5xl lg:mx-auto">
+      <body>
         <Header />
-        <main>{children}</main>
-        <div className="h-40" />
+        <main className="container max-w-4xl py-6 lg:py-10">{children}</main>
         <Footer />
       </body>
     </html>
