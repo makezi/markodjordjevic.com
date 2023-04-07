@@ -43,7 +43,9 @@ export default function RootLayout({
     >
       <body>
         <Header />
-        <main className="container max-w-4xl py-6 lg:py-10">{children}</main>
+        <main className="container max-w-4xl py-6 lg:pb-20 lg:pt-10">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
