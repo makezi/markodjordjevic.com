@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import avatarPic from '@/public/images/avatar.jpg';
+import avatarPic from '../../public/images/avatar.jpg';
 
 export const metadata: Metadata = {
   title: 'About'
