@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About'
@@ -21,10 +22,7 @@ export default function AboutPage() {
         Apex Legends), eating ramen, working out, swimming, eating more ramen
         (please help me) and the occassional drawing! I've also started picking
         up bouldering, Brazilian jiu-jitsu, and writing{' '}
-        <a href="/blog" rel="noopener noreferrer" target="_blank">
-          content
-        </a>{' '}
-        of my web development experiences.
+        <Link href="/blog">content</Link> of my web development experiences.
       </p>
 
       <div>
@@ -95,6 +93,13 @@ export default function AboutPage() {
             MonoLisa
           </a>{' '}
           font.
+        </p>
+
+        <h3>
+          Can you tell us what else you use (desk setup, tech stack, etc.)?
+        </h3>
+        <p>
+          Everything I'm using can be found <Link href="/uses">here.</Link>
         </p>
 
         <h3>What rank are you in Dota 2 and Apex Legends?</h3>

@@ -31,7 +31,7 @@ export function NavBar() {
 
   return (
     <nav>
-      <ul className="-ml-4 flex items-center space-x-2 transition-all lg:ml-0">
+      <ul className="-ml-4 flex items-center space-x-2 lg:ml-0">
         {Object.entries(navItems).map(([path, { name }]) => {
           const isActive = path === pathname;
 
@@ -57,7 +57,7 @@ export function NavBar() {
         })}
 
         <div className="hidden items-center sm:flex">
-          <li className="relative px-4 py-2">
+          <li className="px-4 py-2">
             <a
               href="https://twitter.com/makezid"
               className={navLinkClass}
@@ -68,7 +68,7 @@ export function NavBar() {
             </a>
           </li>
 
-          <li className="relative px-4 py-2">
+          <li className="px-4 py-2">
             <a
               href="https://github.com/makezi"
               className={navLinkClass}
