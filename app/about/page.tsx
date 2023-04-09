@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
+
+import avatarPic from '@/public/images/avatar.jpg';
 
 export const metadata: Metadata = {
   title: 'About'
@@ -10,20 +13,33 @@ export default function AboutPage() {
     <section className="prose max-w-4xl sm:prose-lg">
       <h1>About Me</h1>
 
-      <p>
-        Hey, I'm Marko Djordjevic. But you can call me <strong>makezi</strong>{' '}
-        if you'd like.
-      </p>
+      <div className="flex flex-col items-center md:flex-row md:space-x-12">
+        <Image
+          className="h-full max-w-[60vw] rotate-3 border-8 grayscale"
+          alt="Marko Djordjevic"
+          src={avatarPic}
+          placeholder="blur"
+          width={250}
+          priority
+        ></Image>
 
-      <p>WORK HERE</p>
+        <div>
+          <p>
+            Hey, I'm Marko Djordjevic. But you can call me{' '}
+            <strong>makezi</strong> if you'd like.
+          </p>
 
-      <p>
-        Outside of work in my free time, I like playing video games (Dota 2,
-        Apex Legends), eating ramen, working out, swimming, eating more ramen
-        (please help me) and the occassional drawing! I've also started picking
-        up bouldering, Brazilian jiu-jitsu, and writing{' '}
-        <Link href="/blog">content</Link> of my web development experiences.
-      </p>
+          <p>WORK HERE</p>
+
+          <p>
+            Outside of work in my free time, I like playing video games (Dota 2,
+            Apex Legends), eating ramen, working out, swimming, eating more
+            ramen (please help me) and the occassional drawing! I've also
+            started picking up bouldering, Brazilian jiu-jitsu, and writing{' '}
+            <Link href="/blog">content</Link> of my web development experiences.
+          </p>
+        </div>
+      </div>
 
       <div>
         <h2>FAQ</h2>
