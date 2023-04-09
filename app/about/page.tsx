@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import avatarPic from '@/public/images/avatar.jpg';
+import avatarPic from '@/public/images/avatar.jpeg';
 
 export const metadata: Metadata = {
   title: 'About'
@@ -15,11 +15,11 @@ export default function AboutPage() {
 
       <div className="flex flex-col items-center md:flex-row md:space-x-12">
         <Image
-          className="h-full max-w-[60vw] rotate-3 border-8 grayscale"
+          className="rotate-3 border-8 grayscale"
           alt="Marko Djordjevic"
           src={avatarPic}
           placeholder="blur"
-          width={250}
+          width={200}
           priority
         ></Image>
 
