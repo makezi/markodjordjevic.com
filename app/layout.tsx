@@ -37,7 +37,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        'bg-background text-body',
+        'bg-background text-body antialiased',
         calSans.variable,
         inter.variable
       )}

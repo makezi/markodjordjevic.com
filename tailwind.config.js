@@ -15,15 +15,15 @@ module.exports = {
         '2xl': '1440px'
       }
     },
-    colors: {
-      body: colors.neutral[400],
-      heading: colors.neutral[300],
-      background: colors.zinc[900],
-      disabled: colors.neutral[500],
-      'background-highlight': colors.zinc[800],
-      link: colors.blue[300]
-    },
     extend: {
+      colors: {
+        body: colors.neutral[400],
+        heading: colors.neutral[300],
+        background: colors.zinc[900],
+        disabled: colors.neutral[500],
+        'background-highlight': colors.zinc[800],
+        link: colors.blue[300]
+      },
       fontFamily: {
         body: ['var(--font-inter)'],
         heading: ['var(--font-cal-sans)']
