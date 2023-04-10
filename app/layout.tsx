@@ -25,7 +25,26 @@ export const metadata: Metadata = {
     default: 'Marko Djordjevic',
     template: '%s | Marko Djordjevic'
   },
-  description: 'Developer'
+  description: 'Welcome to my little corner of the web.',
+  openGraph: {
+    title: 'Marko Djordjevic',
+    description: 'Welcome to my little corner of the web.',
+    url: 'https://markodjordjev,ic.com',
+    siteName: 'Marko Djordjevic',
+    locale: 'en-US',
+    type: 'website'
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1
+    }
+  }
 };
 
 export default function RootLayout({
