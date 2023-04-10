@@ -5,7 +5,8 @@ import Image from 'next/image';
 import avatarPic from '@/public/images/avatar.jpeg';
 
 export const metadata: Metadata = {
-  title: 'About'
+  title: 'About',
+  description: 'Get to know me, Marko Djordjevic.'
 };
 
 export default function AboutPage() {
