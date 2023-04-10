@@ -2,8 +2,8 @@ import { getMDXComponent } from 'next-contentlayer/hooks';
 import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
 
-import { allPosts } from 'contentlayer/generated';
 import { BackArrow } from '@/components/icons';
+import { allPosts } from 'contentlayer/generated';
 
 export const generateStaticParams = () =>
   allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
