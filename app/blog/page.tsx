@@ -8,7 +8,8 @@ import { allPosts } from 'contentlayer/generated';
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description: 'ADD DESCRIPTION!!'
+  description:
+    'Take a peek into my thoughts on everything web development related.'
 };
 
 export default function BlogPage() {
