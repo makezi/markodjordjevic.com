@@ -1,14 +1,42 @@
 import { getMDXComponent } from 'next-contentlayer/hooks';
 import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
 import { BackArrow } from '@/components/icons';
-import { allPosts } from 'contentlayer/generated';
+import { Post, allPosts } from 'contentlayer/generated';
 
-export const generateStaticParams = () =>
-  allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
+export function generateStaticParams() {
+  return allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
+}
 
-export default function PostPage({ params }: { params: { slug: string } }) {
+export function generateMetadata({
+  params
+}: {
+  params: Post;
+}): Metadata | undefined {
+  const post = allPosts.find((post) => post.slug === params.slug);
+
+  if (!post) {
+    return;
+  }
+
+  const { title, publishedAt, summary: description, slug } = post;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      publishedTime: publishedAt,
+      url: `https://markodjordjevic.com/blog/${slug}`
+    }
+  };
+}
+
+export default function PostPage({ params }: { params: Post }) {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
 
   if (!post) {
@@ -26,7 +54,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         >
           <BackArrow /> <span>Back to Posts</span>
         </Link>
-        <div className="flex flex-col items-center border-b border-background-highlight pb-8 sm:pb-12">
+        <div className="flex flex-col border-b border-background-highlight pb-8 sm:pb-12">
           <h1 className="!mb-4">{post.title}</h1>
           <span className="text-disabled">
             {format(parseISO(post.publishedAt), 'LLLL d, yyyy')} -{' '}

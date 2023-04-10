@@ -5,7 +5,8 @@ import Image from 'next/image';
 import avatarPic from '@/public/images/avatar.jpeg';
 
 export const metadata: Metadata = {
-  title: 'About'
+  title: 'About',
+  description: 'Get to know me, Marko Djordjevic.'
 };
 
 export default function AboutPage() {
@@ -13,13 +14,13 @@ export default function AboutPage() {
     <section className="prose max-w-4xl sm:prose-lg">
       <h1>About Me</h1>
 
-      <div className="flex flex-col items-center md:flex-row md:space-x-12">
+      <div className="flex flex-col">
         <Image
-          className="rotate-3 border-8 grayscale"
+          className="rotate-3 self-center border-8 grayscale"
           alt="Marko Djordjevic"
           src={avatarPic}
           placeholder="blur"
-          width={200}
+          width={250}
           priority
         ></Image>
 
@@ -29,14 +30,56 @@ export default function AboutPage() {
             <strong>makezi</strong> if you'd like.
           </p>
 
-          <p>WORK HERE</p>
+          <p>
+            I'm a <strong>Senior Web Developer at Metcash</strong>, where I
+            spend most of my time building and maintaining their first
+            e-commerce solution for IGA. It's been a wild ride, but I'm proud of
+            what our team has accomplished so far (and what we have upcoming -
+            which is nothing or something 🤫).
+          </p>
 
           <p>
-            Outside of work in my free time, I like playing video games (Dota 2,
-            Apex Legends), eating ramen, working out, swimming, eating more
-            ramen (please help me) and the occassional drawing! I've also
-            started picking up bouldering, Brazilian jiu-jitsu, and writing{' '}
-            <Link href="/blog">content</Link> of my web development experiences.
+            When I'm not coding away, you can find me indulging in some of my
+            favourite hobbies. I love playing video games, especially Dota 2 and
+            Apex Legends. And let's not forget about my obsession with ramen 🍜.
+            I eat it so often that I need to work out just to avoid turning into
+            a giant noodle.
+          </p>
+
+          <p>
+            Speaking of working out, I started doing it again after taking some
+            long long time off after experiencing sciatica to ease it and
+            prevent any further injuries 🤕. And when the weather's nice, you
+            can catch me swimming laps at the local pool. I've also taken up
+            bouldering, Brazilian jiu-jitsu as new challenges.
+          </p>
+
+          <p>
+            But I'm not just about fun and games. I'm passionate about web
+            development, which is why I started sharing my experiences through
+            my writing. You can find some of my musings on my{' '}
+            <Link href="/blog">blog.</Link>
+          </p>
+
+          <p>
+            Thanks for taking the time stopping by. If you want to connect with
+            me, feel free to reach out on{' '}
+            <a
+              href="https://twitter.com/makezid"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Twitter
+            </a>{' '}
+            or{' '}
+            <a
+              href="https://github.com/makezi"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              GitHub
+            </a>
+            . Let's chat!
           </p>
         </div>
       </div>
