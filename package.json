@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "format": "prettier --write . --ignore-path .gitignore --ignore-unknown --no-error-on-unmatched-pattern",
     "format:check": "pnpm format --check",
     "typecheck": "tsc --noEmit",
