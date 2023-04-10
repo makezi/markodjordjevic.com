@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { compareDesc, format, parseISO } from 'date-fns';
