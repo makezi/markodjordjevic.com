@@ -19,14 +19,14 @@ const navItems = {
 };
 
 const navLinkClass = cn(
-  'font-heading text-lg text-neutral-400 transition-all hover:text-neutral-300'
+  'font-heading text-lg text-body transition-all hover:text-heading'
 );
 
 export function NavBar() {
   let pathname = usePathname() || '/';
 
   if (pathname.includes('/blog/')) {
-    pathname = '/blog/';
+    pathname = '/blog';
   }
 
   return (
@@ -40,14 +40,14 @@ export function NavBar() {
               <Link
                 href={path}
                 className={cn(navLinkClass, {
-                  'text-neutral-300': isActive
+                  'text-link hover:text-link': isActive
                 })}
               >
                 <span>{name}</span>
                 {isActive ? (
                   <div
                     className={cn(
-                      'absolute inset-0 -z-10 h-full rounded-lg bg-zinc-800'
+                      'absolute inset-0 -z-10 h-full rounded-lg bg-background-highlight'
                     )}
                   />
                 ) : null}

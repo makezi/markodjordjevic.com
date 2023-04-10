@@ -37,14 +37,14 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        'bg-background text-neutral-300',
+        'bg-background text-body',
         calSans.variable,
         inter.variable
       )}
     >
       <body>
         <Header />
-        <main className="container max-w-4xl py-6 lg:pb-20 lg:pt-10">
+        <main className="container max-w-4xl p-6 pt-0 sm:px-8 sm:py-6 sm:pb-20 lg:pt-10">
           {children}
         </main>
         <Footer />

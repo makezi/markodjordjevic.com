@@ -2,11 +2,10 @@ import Link, { LinkProps } from 'next/link';
 import type { PropsWithChildren } from 'react';
 
 import { cn } from '@/lib/utils';
-
-import { GithubIcon, TwitterIcon } from './icons';
+import { GithubIcon, TwitterIcon } from '@/components/icons';
 
 const navLinkClass = cn(
-  'font-heading text-lg text-neutral-400 transition-all hover:text-neutral-300'
+  'font-heading text-lg text-body transition-all hover:text-heading'
 );
 
 function FooterLink({ children, ...props }: PropsWithChildren<LinkProps>) {
@@ -21,7 +20,7 @@ function FooterLink({ children, ...props }: PropsWithChildren<LinkProps>) {
 
 export function Footer() {
   return (
-    <footer className="container flex flex-col justify-between space-y-10 border-t border-zinc-800 py-8 sm:flex-row sm:space-y-0 sm:py-14">
+    <footer className="container flex flex-col justify-between space-y-10 border-t border-background-highlight px-6 py-8 sm:flex-row sm:space-y-0 sm:px-8 sm:py-14">
       <ul className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:space-x-6 sm:space-y-0 md:space-x-8">
         <FooterLink href="/">Home</FooterLink>
         <FooterLink href="/blog">Blog</FooterLink>
