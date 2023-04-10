@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { compareDesc, format, parseISO } from 'date-fns';
 
 import { allPosts } from 'contentlayer/generated';
-
 import { BackArrow } from '@/components/icons';
 
 export const metadata: Metadata = {

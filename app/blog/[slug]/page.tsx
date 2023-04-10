@@ -3,7 +3,6 @@ import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
 
 import { allPosts } from 'contentlayer/generated';
-
 import { BackArrow } from '@/components/icons';
 
 export const generateStaticParams = () =>
