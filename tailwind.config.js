@@ -52,9 +52,6 @@ module.exports = {
             'h1, h2, h3, h4, h5, h6': {
               fontFamily: theme('fontFamily.heading'),
               color: theme('colors.heading')
-            },
-            h1: {
-              textAlign: 'center'
             }
           }
         }

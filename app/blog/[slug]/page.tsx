@@ -54,7 +54,7 @@ export default function PostPage({ params }: { params: Post }) {
         >
           <BackArrow /> <span>Back to Posts</span>
         </Link>
-        <div className="flex flex-col items-center border-b border-background-highlight pb-8 sm:pb-12">
+        <div className="flex flex-col border-b border-background-highlight pb-8 sm:pb-12">
           <h1 className="!mb-4">{post.title}</h1>
           <span className="text-disabled">
             {format(parseISO(post.publishedAt), 'LLLL d, yyyy')} -{' '}
