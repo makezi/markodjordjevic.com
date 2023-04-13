@@ -34,30 +34,30 @@ export default function AboutPage() {
             I'm a <strong>Senior Web Developer at Metcash</strong>, where I
             spend most of my time building and maintaining their first
             e-commerce solution for IGA. It's been a wild ride, but I'm proud of
-            what our team has accomplished so far (and what we have upcoming -
-            which is nothing or something 🤫).
+            what our team has accomplished so far and what else we can
+            accomplish in the future.
           </p>
 
           <p>
             When I'm not coding away, you can find me indulging in some of my
             favourite hobbies. I love playing video games, especially Dota 2 and
-            Apex Legends. And let's not forget about my obsession with ramen 🍜.
-            I eat it so often that I need to work out just to avoid turning into
-            a giant noodle.
+            Apex Legends. And let's not forget about my obsession with ramen. I
+            eat it so often that I need to work out just to avoid turning into a
+            giant noodle.
           </p>
 
           <p>
             Speaking of working out, I started doing it again after taking some
             long long time off after experiencing sciatica to ease it and
-            prevent any further injuries 🤕. And when the weather's nice, you
-            can catch me swimming laps at the local pool. I've also taken up
-            bouldering, Brazilian jiu-jitsu as new challenges.
+            prevent any further injuries. And when the weather's nice, you can
+            catch me swimming laps at the local pool. I've also taken up
+            bouldering and Brazilian jiu-jitsu as new challenges.
           </p>
 
           <p>
             But I'm not just about fun and games. I'm passionate about web
             development, which is why I started sharing my experiences through
-            my writing. You can find some of my musings on my{' '}
+            my writing. You can find some of my content on my{' '}
             <Link href="/blog">blog.</Link>
           </p>
 
@@ -159,16 +159,6 @@ export default function AboutPage() {
         </h3>
         <p>
           Everything I'm using can be found <Link href="/uses">here.</Link>
-        </p>
-
-        <h3>What rank are you in Dota 2 and Apex Legends?</h3>
-        <p>
-          For Dota 2, I'm currently hovering between 4 and 5 star divine.
-          Immortal has escaped me many times 🥹.
-        </p>
-        <p>
-          As for Apex Legends (PS5), I usually get to Diamond II-IV then get
-          stomped by Predators on my way to Masters.
         </p>
       </div>
     </section>
