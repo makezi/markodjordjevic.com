@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { withContentlayer } = require('next-contentlayer');
 
+// We call the below file so that the app isn't built with invalid env vars.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const { env } = require('./lib/env');
+
 const ContentSecurityPolicy = `
     default-src 'self' vercel.live;
     script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live;

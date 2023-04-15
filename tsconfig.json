@@ -32,7 +32,8 @@
     ".next/types/**/*.ts",
     "*.config.js",
     ".contentlayer/generated",
-    "next.config.js"
+    "next.config.js",
+    "env.js"
   ],
   "exclude": ["node_modules"]
 }
