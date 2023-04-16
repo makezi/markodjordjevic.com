@@ -17,11 +17,11 @@ export default function BlogPage() {
   );
 
   return (
-    <section className="prose max-w-4xl sm:prose-lg">
+    <section className="prose max-w-4xl sm:prose-lg sm:px-4">
       <h1>Blog</h1>
 
       {posts.map((post) => (
-        <div key={post.slug} className="py-2">
+        <div key={post.slug}>
           <Link href={`/blog/${post.slug}`}>
             <h2 className="!mb-2">{post.title}</h2>
           </Link>

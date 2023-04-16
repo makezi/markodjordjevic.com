@@ -50,7 +50,7 @@ export function Footer() {
           </li>
         </div>
       </ul>
-      <span>© Marko Djordjevic 2023</span>
+      <span className="font-body text-body">© Marko Djordjevic 2023</span>
     </footer>
   );
 }
