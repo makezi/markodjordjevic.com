@@ -46,7 +46,7 @@ export default function PostPage({ params }: { params: Post }) {
   const Content = getMDXComponent(post.body.code);
 
   return (
-    <article className="prose max-w-4xl sm:prose-lg">
+    <article className="prose max-w-4xl sm:prose-lg sm:px-4">
       <div className="mb-8 flex flex-col space-y-6 sm:mb-12 sm:space-y-10">
         <Link
           href="/blog"

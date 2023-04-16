@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <section className="prose max-w-4xl sm:prose-lg">
+    <section className="prose max-w-4xl sm:prose-lg sm:px-4">
       <h1>About Me</h1>
 
       <div className="flex flex-col">
@@ -43,22 +43,23 @@ export default function AboutPage() {
             favourite hobbies. I love playing video games, especially Dota 2 and
             Apex Legends. And let's not forget about my obsession with ramen. I
             eat it so often that I need to work out just to avoid turning into a
-            giant noodle.
+            giant wet noodle.
           </p>
 
           <p>
             Speaking of working out, I started doing it again after taking some
-            long long time off after experiencing sciatica to ease it and
-            prevent any further injuries. And when the weather's nice, you can
-            catch me swimming laps at the local pool. I've also taken up
-            bouldering and Brazilian jiu-jitsu as new challenges.
+            very very long time off after experiencing sciatica to ease it and
+            prevent any further injuries. And when the weather's not freezing,
+            you can catch me swimming laps at the local pool. I've also taken up
+            bouldering as a new challenge and the occasional drawing here and
+            there.
           </p>
 
           <p>
             But I'm not just about fun and games. I'm passionate about web
             development, which is why I started sharing my experiences through
             my writing. You can find some of my content on my{' '}
-            <Link href="/blog">blog.</Link>
+            <Link href="/blog">blog</Link>.
           </p>
 
           <p>

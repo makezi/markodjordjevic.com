@@ -31,8 +31,18 @@ export const metadata: Metadata = {
     description: 'Welcome to my little corner of the web.',
     url: 'https://markodjordjevic.com',
     siteName: 'Marko Djordjevic',
+    images: [
+      {
+        url: 'https://markodjordjevic.com/og.png',
+        width: 1920,
+        height: 1080
+      }
+    ],
     locale: 'en-US',
     type: 'website'
+  },
+  icons: {
+    shortcut: '/favicon.ico'
   },
   robots: {
     index: true,

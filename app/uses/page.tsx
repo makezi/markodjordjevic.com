@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function UsesPage() {
   return (
-    <section className="prose max-w-4xl sm:prose-lg">
+    <section className="prose max-w-4xl sm:prose-lg sm:px-4">
       <h1>Uses</h1>
       <p>{description}</p>
 
@@ -341,7 +341,8 @@ export default function UsesPage() {
           </a>
         </li>
         <li>
-          Remax Desk Fan - Summer sometimes gets quite crazy here Australia 🥵.
+          Remax Desk Fan - Summer sometimes gets quite crazy here in Australia
+          🥵.
         </li>
         <li>
           Custom Made Automatic Height Adjustable Table (Black Frame, Dark Oak
