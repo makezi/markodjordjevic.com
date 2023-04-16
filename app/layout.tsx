@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Marko Djordjevic',
     description: 'Welcome to my little corner of the web.',
-    url: 'https://markodjordjev,ic.com',
+    url: 'https://markodjordjevic.com',
     siteName: 'Marko Djordjevic',
     locale: 'en-US',
     type: 'website'
