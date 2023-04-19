@@ -66,16 +66,14 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        'bg-background text-body antialiased',
+        'bg-zinc-900 font-body text-body antialiased',
         calSans.variable,
         inter.variable
       )}
     >
       <body>
         <Header />
-        <main className="container max-w-4xl p-6 pt-0 sm:px-8 sm:py-6 sm:pb-20 lg:pt-10">
-          {children}
-        </main>
+        <main className="min-h-screen px-6 pb-20">{children}</main>
         <Footer />
         <Analytics />
       </body>
