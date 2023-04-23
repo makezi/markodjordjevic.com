@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 
 import { BackArrow } from '@/components/icons';
 import { Post, allPosts } from 'contentlayer/generated';
+import { env } from '@/lib/env';
 
 export function generateStaticParams() {
   return allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
@@ -31,7 +32,7 @@ export function generateMetadata({
       description,
       type: 'article',
       publishedTime: publishedAt,
-      url: `https://markodjordjevic.com/blog/${slug}`
+      url: `${env.DOMAIN}/blog/${slug}`
     }
   };
 }
