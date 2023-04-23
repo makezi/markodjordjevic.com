@@ -3,7 +3,6 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
-import { TwitterIcon, GithubIcon } from '@/components/icons';
 import { cn } from '@/lib/utils';
 
 const navItems = {
@@ -12,15 +11,8 @@ const navItems = {
   },
   '/blog': {
     name: 'Blog'
-  },
-  '/about': {
-    name: 'About'
   }
 };
-
-const navLinkClass = cn(
-  'font-heading text-lg text-body transition-all hover:text-heading'
-);
 
 export function NavBar() {
   let pathname = usePathname() || '/';
@@ -31,54 +23,26 @@ export function NavBar() {
 
   return (
     <nav>
-      <ul className="-ml-4 flex items-center space-x-2 lg:ml-0">
+      <ul className="-ml-2 flex items-center sm:-ml-0 sm:-mr-2">
         {Object.entries(navItems).map(([path, { name }]) => {
           const isActive = path === pathname;
 
           return (
-            <li key={path} className="relative px-4 py-2">
+            <li key={path}>
               <Link
                 href={path}
-                className={cn(navLinkClass, {
-                  'text-link hover:text-link': isActive
-                })}
+                className={cn(
+                  'p-2 font-heading text-body transition-all hover:text-heading sm:text-lg',
+                  {
+                    'text-heading hover:text-heading': isActive
+                  }
+                )}
               >
                 <span>{name}</span>
-                {isActive ? (
-                  <div
-                    className={cn(
-                      'absolute inset-0 -z-10 h-full rounded-lg bg-background-highlight'
-                    )}
-                  />
-                ) : null}
               </Link>
             </li>
           );
         })}
-
-        <div className="hidden items-center sm:flex">
-          <li className="px-4 py-2">
-            <a
-              href="https://twitter.com/makezid"
-              className={navLinkClass}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <TwitterIcon />
-            </a>
-          </li>
-
-          <li className="px-4 py-2">
-            <a
-              href="https://github.com/makezi"
-              className={navLinkClass}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <GithubIcon />
-            </a>
-          </li>
-        </div>
       </ul>
     </nav>
   );
