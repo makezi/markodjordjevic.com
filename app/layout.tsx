@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header/header';
 import { Footer } from '@/components/footer';
+import { env } from '@/lib/env';
 
 const calSans = localFont({
   src: '../public/fonts/cal-sans-semibold.woff2',
@@ -30,11 +31,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Marko Djordjevic',
     description: 'Welcome to my little corner of the web.',
-    url: 'https://markodjordjevic.com',
+    url: env.DOMAIN,
     siteName: 'Marko Djordjevic',
     images: [
       {
-        url: 'https://markodjordjevic.com/og.png',
+        url: `${env.DOMAIN}/og.png`,
         width: 1920,
         height: 1080
       }
