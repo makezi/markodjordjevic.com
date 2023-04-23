@@ -1,5 +1,5 @@
 import './global.css';
-import { Inter } from 'next/font/google';
+import { DM_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
@@ -14,10 +14,11 @@ const calSans = localFont({
   variable: '--font-cal-sans'
 });
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter'
+  variable: '--font-dm-sans',
+  weight: ['400', '500', '700']
 });
 
 export const metadata: Metadata = {
@@ -68,12 +69,12 @@ export default function RootLayout({
       className={cn(
         'bg-zinc-900 font-body text-body antialiased',
         calSans.variable,
-        inter.variable
+        dmSans.variable
       )}
     >
       <body>
         <Header />
-        <main className="min-h-screen px-6 pb-20">{children}</main>
+        <main className="min-h-screen px-4 pb-20 sm:px-6">{children}</main>
         <Footer />
         <Analytics />
       </body>

@@ -16,7 +16,7 @@ export default function BlogPage() {
   );
 
   return (
-    <section className="container prose prose-invert">
+    <section className="container prose prose-invert md:prose-lg sm:px-10">
       <h1>Blog</h1>
 
       <div className="-mx-4 -mt-4">

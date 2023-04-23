@@ -46,8 +46,8 @@ export default function PostPage({ params }: { params: Post }) {
   const Content = getMDXComponent(post.body.code);
 
   return (
-    <article className="container prose prose-invert">
-      <div className="mb-10 flex flex-col space-y-10">
+    <article className="container prose prose-invert md:prose-lg sm:px-10">
+      <div className="mb-8 flex flex-col space-y-6 sm:mb-10 sm:space-y-10">
         <Link
           href="/blog"
           className="flex w-fit items-center space-x-2 font-heading text-body no-underline transition-all hover:text-heading"
@@ -58,8 +58,8 @@ export default function PostPage({ params }: { params: Post }) {
           <span className="text-body-secondary">
             {format(parseISO(post.publishedAt), 'LLLL d, yyyy')}
           </span>
-          <div className="!mb-10 flex flex-col space-y-4">
-            <h1 className="!mb-0">{post.title}</h1>
+          <div className="!mb-8 flex flex-col space-y-4 sm:!mb-10">
+            <h1 className="!mb-0 leading-tight">{post.title}</h1>
             <p>{post.summary}</p>
           </div>
         </div>

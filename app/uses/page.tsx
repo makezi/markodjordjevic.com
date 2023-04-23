@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function UsesPage() {
   return (
-    <section className="container prose prose-invert">
+    <section className="container prose prose-invert md:prose-lg sm:px-10">
       <h1>Uses</h1>
       <p>{description}</p>
 

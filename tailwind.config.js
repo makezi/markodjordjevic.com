@@ -14,7 +14,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        body: ['var(--font-inter)'],
+        body: ['var(--font-dm-sans)'],
         heading: ['var(--font-cal-sans)']
       },
       colors: {

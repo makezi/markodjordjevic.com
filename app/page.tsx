@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <section className="container prose prose-invert">
+    <section className="container prose prose-invert md:prose-lg sm:px-10">
       <p>
         Hey, I'm Marko Djordjevic. But you can call me <strong>Makezi</strong>{' '}
         if you'd like.

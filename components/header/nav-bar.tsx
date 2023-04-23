@@ -23,7 +23,7 @@ export function NavBar() {
 
   return (
     <nav>
-      <ul className="flex items-center">
+      <ul className="-ml-2 flex items-center sm:-ml-0 sm:-mr-2">
         {Object.entries(navItems).map(([path, { name }]) => {
           const isActive = path === pathname;
 
@@ -32,7 +32,7 @@ export function NavBar() {
               <Link
                 href={path}
                 className={cn(
-                  'p-2 font-heading text-body transition-all hover:text-heading',
+                  'p-2 font-heading text-body transition-all hover:text-heading sm:text-lg',
                   {
                     'text-heading hover:text-heading': isActive
                   }
