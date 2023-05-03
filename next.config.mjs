@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { withContentlayer } = require('next-contentlayer');
+import './lib/env.mjs';
+import { withContentlayer } from 'next-contentlayer';
 
 const ContentSecurityPolicy = `
     default-src 'self' vercel.live;
@@ -71,4 +72,4 @@ const nextConfig = {
   }
 };
 
-module.exports = withContentlayer(nextConfig);
+export default withContentlayer(nextConfig);
