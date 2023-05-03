@@ -6,7 +6,8 @@ on:
   merge_group:
 
 # To use Remote Caching, uncomment the next lines and follow the steps below.
-# env:
+env:
+  SKIP_ENV_VALIDATION: true
 #   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 #   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 

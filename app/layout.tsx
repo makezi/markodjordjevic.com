@@ -7,7 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header/header';
 import { Footer } from '@/components/footer';
-import { env } from '@/lib/env';
+import { env } from '@/lib/env.mjs';
 
 const calSans = localFont({
   src: '../public/fonts/cal-sans-semibold.woff2',

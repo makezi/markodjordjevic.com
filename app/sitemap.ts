@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 import { allPosts } from 'contentlayer/generated';
-import { env } from '@/lib/env';
+import { env } from '@/lib/env.mjs';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = allPosts.map((post) => ({
