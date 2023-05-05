@@ -1,4 +1,4 @@
-import { NavBar } from './nav-bar';
+import { Nav } from './nav';
 
 function Logo() {
   return (
@@ -8,11 +8,11 @@ function Logo() {
   );
 }
 
-export function AsideNav() {
+export function Sidebar() {
   return (
     <aside className="sticky top-20 flex w-[160px] shrink-0 flex-col space-y-8 self-start">
       <Logo />
-      <NavBar />
+      <Nav />
     </aside>
   );
 }

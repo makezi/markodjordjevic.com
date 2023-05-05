@@ -5,10 +5,9 @@ import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
 
 import { cn } from '@/lib/utils';
-import { Header } from '@/components/header/header';
-import { Footer } from '@/components/footer';
+import { Footer } from '@/components/layout/footer';
 import { env } from '@/lib/env.mjs';
-import { AsideNav } from '@/components/aside-nav';
+import { Sidebar } from '@/components/layout/sidebar';
 
 const calSans = localFont({
   src: '../public/fonts/cal-sans-semibold.woff2',
@@ -77,7 +76,7 @@ export default function RootLayout({
         {/* <Header /> */}
         <div className="pointer-events-none sticky top-0 z-10 h-20 w-full bg-gradient-to-b from-neutral-200 to-transparent" />
         <div className="flex flex-row px-10 pb-40">
-          <AsideNav />
+          <Sidebar />
           <main>{children}</main>
           {/* <Footer /> */}
         </div>

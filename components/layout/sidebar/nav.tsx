@@ -17,7 +17,7 @@ const navItems = {
   }
 };
 
-export function NavBar() {
+export function Nav() {
   let pathname = usePathname() || '/';
 
   if (pathname.includes('/blog/')) {
@@ -26,19 +26,18 @@ export function NavBar() {
 
   return (
     <nav>
-      <ul className="flex items-center">
+      <ul className="flex flex-col">
         {Object.entries(navItems).map(([path, { name }]) => {
           const isActive = path === pathname;
 
           return (
-            <li key={path}>
+            <li key={path} className="w-full">
               <Link
                 href={path}
                 className={cn(
-                  'px-4 py-2 font-heading text-body-secondary transition-all hover:text-body hover:underline hover:decoration-2 hover:underline-offset-4 sm:text-lg',
+                  'inline-block h-full w-full py-1 font-heading text-lg text-body-secondary transition-all hover:text-body',
                   {
-                    'underline underline-offset-4 decoration-2 text-body ':
-                      isActive
+                    'text-body': isActive
                   }
                 )}
               >
