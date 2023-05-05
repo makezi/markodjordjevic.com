@@ -16,17 +16,21 @@ export default function BlogPage() {
   );
 
   return (
-    <section className="container prose prose-invert md:prose-lg sm:px-10">
+    <section className="container prose">
       <h1>Blog</h1>
 
-      <div className="-mx-4 -mt-4">
+      <div>
         {posts.map((post) => (
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="no-underline"
+            className="not-prose flex items-center justify-between border-b py-4 no-underline"
           >
-            <div className="not-prose flex flex-col space-y-4 rounded-md p-4 hover:bg-zinc-800">
+            <h2 className="flex-[2_2_0%] font-heading">{post.title}</h2>
+            <span className="flex-1 shrink-0 text-right text-base text-neutral-500">
+              {format(parseISO(post.publishedAt), 'LLLL d, yyyy')}
+            </span>
+            {/* <div className="not-prose flex flex-col space-y-4 rounded-md p-4 hover:bg-zinc-800">
               <div className="flex flex-col-reverse items-start justify-between sm:flex-row">
                 <h2 className="flex-[2_2_0%] font-heading text-xl">
                   {post.title}
@@ -36,7 +40,7 @@ export default function BlogPage() {
                 </span>
               </div>
               <p className="font-normal text-body">{post.summary}</p>
-            </div>
+            </div> */}
           </Link>
         ))}
       </div>

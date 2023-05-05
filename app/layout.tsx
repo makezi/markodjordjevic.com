@@ -1,5 +1,5 @@
 import './global.css';
-import { DM_Sans } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { Header } from '@/components/header/header';
 import { Footer } from '@/components/footer';
 import { env } from '@/lib/env.mjs';
+import { AsideNav } from '@/components/aside-nav';
 
 const calSans = localFont({
   src: '../public/fonts/cal-sans-semibold.woff2',
@@ -15,11 +16,10 @@ const calSans = localFont({
   variable: '--font-cal-sans'
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-dm-sans',
-  weight: ['400', '500', '700']
+  variable: '--font-inter'
 });
 
 export const metadata: Metadata = {
@@ -68,15 +68,19 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        'bg-zinc-900 font-body text-body antialiased',
+        'bg-neutral-200 font-body text-body antialiased',
         calSans.variable,
-        dmSans.variable
+        inter.variable
       )}
     >
-      <body>
-        <Header />
-        <main className="min-h-screen px-4 pb-20 sm:px-6">{children}</main>
-        <Footer />
+      <body className="mx-auto max-w-4xl">
+        {/* <Header /> */}
+        <div className="pointer-events-none sticky top-0 z-10 h-20 w-full bg-gradient-to-b from-neutral-200 to-transparent" />
+        <div className="flex flex-row px-10 pb-40">
+          <AsideNav />
+          <main>{children}</main>
+          {/* <Footer /> */}
+        </div>
         <Analytics />
       </body>
     </html>
