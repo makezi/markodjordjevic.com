@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function UsesPage() {
   return (
-    <section className="container prose prose-invert md:prose-lg sm:px-10">
+    <section className="container prose">
       <h1>Uses</h1>
       <p>{description}</p>
 
@@ -157,15 +157,6 @@ export default function UsesPage() {
         </li>
         <li>
           <a
-            href="https://folivora.ai/bettersnaptool"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            BetterSnapTool
-          </a>
-        </li>
-        <li>
-          <a
             href="https://www.figma.com/"
             rel="noopener noreferrer"
             target="_blank"
@@ -189,15 +180,6 @@ export default function UsesPage() {
             target="_blank"
           >
             GitKraken
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://iterm2.com/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            iTerm
           </a>
         </li>
         <li>

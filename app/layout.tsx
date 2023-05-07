@@ -1,13 +1,13 @@
 import './global.css';
-import { DM_Sans } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
 
 import { cn } from '@/lib/utils';
-import { Header } from '@/components/header/header';
-import { Footer } from '@/components/footer';
+import { Footer } from '@/components/layout/footer';
 import { env } from '@/lib/env.mjs';
+import { Sidebar } from '@/components/layout/sidebar';
 
 const calSans = localFont({
   src: '../public/fonts/cal-sans-semibold.woff2',
@@ -15,11 +15,10 @@ const calSans = localFont({
   variable: '--font-cal-sans'
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-dm-sans',
-  weight: ['400', '500', '700']
+  variable: '--font-inter'
 });
 
 export const metadata: Metadata = {
@@ -68,14 +67,19 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        'bg-zinc-900 font-body text-body antialiased',
+        'bg-neutral-200 font-body text-body antialiased',
         calSans.variable,
-        dmSans.variable
+        inter.variable
       )}
     >
-      <body>
-        <Header />
-        <main className="min-h-screen px-4 pb-20 sm:px-6">{children}</main>
+      <body className="mx-auto flex min-h-screen max-w-4xl flex-col justify-between">
+        <div>
+          <div className="pointer-events-none sticky top-0 z-10 h-10 w-full bg-gradient-to-b from-neutral-200 to-transparent md:h-20" />
+          <div className="flex flex-col px-4 pb-20 md:flex-row md:px-10">
+            <Sidebar />
+            <main className="w-full pt-10 md:pt-0">{children}</main>
+          </div>
+        </div>
         <Footer />
         <Analytics />
       </body>

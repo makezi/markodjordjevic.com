@@ -11,10 +11,13 @@ const navItems = {
   },
   '/blog': {
     name: 'Blog'
+  },
+  '/about': {
+    name: 'About'
   }
 };
 
-export function NavBar() {
+export function Nav() {
   let pathname = usePathname() || '/';
 
   if (pathname.includes('/blog/')) {
@@ -23,18 +26,18 @@ export function NavBar() {
 
   return (
     <nav>
-      <ul className="-ml-2 flex items-center sm:-ml-0 sm:-mr-2">
+      <ul className="-mr-2 flex md:mr-0 md:flex-col">
         {Object.entries(navItems).map(([path, { name }]) => {
           const isActive = path === pathname;
 
           return (
-            <li key={path}>
+            <li key={path} className="w-full">
               <Link
                 href={path}
                 className={cn(
-                  'p-2 font-heading text-body transition-all hover:text-heading sm:text-lg',
+                  'inline-block h-full w-full px-2 py-1 font-heading text-lg text-body-secondary transition-all hover:text-body md:px-0',
                   {
-                    'text-heading hover:text-heading': isActive
+                    'text-body': isActive
                   }
                 )}
               >
