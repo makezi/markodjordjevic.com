@@ -26,7 +26,7 @@ export function Nav() {
 
   return (
     <nav>
-      <ul className="flex md:flex-col">
+      <ul className="-mr-2 flex md:mr-0 md:flex-col">
         {Object.entries(navItems).map(([path, { name }]) => {
           const isActive = path === pathname;
 

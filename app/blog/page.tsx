@@ -26,7 +26,7 @@ export default function BlogPage() {
             href={`/blog/${post.slug}`}
             className="not-prose inline-block w-full border-t border-neutral-300 no-underline"
           >
-            <li className="flex items-center justify-between py-4 hover:!opacity-100 group-hover:opacity-50">
+            <li className="flex flex-col items-start py-4 hover:!opacity-100 group-hover:opacity-50 sm:flex-row sm:items-center sm:justify-between">
               <h2 className="flex-[2_2_0%] font-heading text-lg">
                 {post.title}
               </h2>

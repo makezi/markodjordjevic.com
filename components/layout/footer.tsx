@@ -7,8 +7,8 @@ const navLinkClass = cn(
 
 export function Footer() {
   return (
-    <footer className="flex items-center justify-between border-t border-neutral-300 px-10 py-4">
-      <ul className="-ml-4 flex flex-row">
+    <footer className="flex items-center justify-between border-t border-neutral-300 p-4 md:px-10">
+      <ul className="-ml-2 flex flex-row md:-ml-4">
         <li className="flex">
           <a
             href="https://twitter.com/makezid"
