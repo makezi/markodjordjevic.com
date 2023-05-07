@@ -21,7 +21,7 @@ export default function AboutPage() {
       <Image
         src="/images/avatar.jpeg"
         alt="Marko Djordjevic"
-        className="float-right ml-6 mt-2 rounded-full grayscale"
+        className="mx-auto mt-2 rounded-full grayscale sm:float-right sm:ml-6"
         priority
         height={148}
         width={148}

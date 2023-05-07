@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { GithubIcon, TwitterIcon } from '@/components/icons';
+import { GithubIcon, MailIcon, TwitterIcon } from '@/components/icons';
 
 const navLinkClass = cn(
   'p-2 text-lg text-body-secondary transition-all hover:text-body'
@@ -11,7 +11,7 @@ export function Footer() {
       <ul className="-ml-4 flex flex-row">
         <li className="flex">
           <a
-            href="https:twitter.com/makezid"
+            href="https://twitter.com/makezid"
             className={navLinkClass}
             rel="noopener noreferrer"
             target="_blank"
@@ -21,12 +21,17 @@ export function Footer() {
         </li>
         <li className="flex">
           <a
-            href="httpsgithub.com/makezi"
+            href="https://github.com/makezi"
             className={navLinkClass}
             rel="noopener noreferrer"
             target="_blank"
           >
             <GithubIcon />
+          </a>
+        </li>
+        <li className="flex">
+          <a href="mailto:hello@markodjordjevic.com" className={navLinkClass}>
+            <MailIcon />
           </a>
         </li>
       </ul>

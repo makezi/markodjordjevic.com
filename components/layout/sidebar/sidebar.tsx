@@ -10,7 +10,7 @@ function Logo() {
 
 export function Sidebar() {
   return (
-    <aside className="sticky top-20 flex w-[160px] shrink-0 flex-col space-y-8 self-start">
+    <aside className="flex w-full shrink-0 items-center justify-between self-start md:sticky md:top-20 md:w-[160px] md:flex-col md:items-start md:justify-normal md:space-y-8">
       <Logo />
       <Nav />
     </aside>

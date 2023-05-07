@@ -74,10 +74,10 @@ export default function RootLayout({
     >
       <body className="mx-auto flex min-h-screen max-w-4xl flex-col justify-between">
         <div>
-          <div className="pointer-events-none sticky top-0 z-10 h-20 w-full bg-gradient-to-b from-neutral-200 to-transparent" />
-          <div className="flex flex-row px-10 pb-20">
+          <div className="pointer-events-none sticky top-0 z-10 h-10 w-full bg-gradient-to-b from-neutral-200 to-transparent md:h-20" />
+          <div className="flex flex-col px-4 pb-20 md:flex-row md:px-10">
             <Sidebar />
-            <main className="w-full">{children}</main>
+            <main className="w-full pt-10 md:pt-0">{children}</main>
           </div>
         </div>
         <Footer />
