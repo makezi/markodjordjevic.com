@@ -19,31 +19,24 @@ export default function BlogPage() {
     <section className="container prose">
       <h1>Blog</h1>
 
-      <div>
+      <ul className="group p-0">
         {posts.map((post) => (
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="not-prose flex items-center justify-between border-b py-4 no-underline"
+            className="not-prose inline-block w-full border-t border-neutral-300 no-underline"
           >
-            <h2 className="flex-[2_2_0%] font-heading">{post.title}</h2>
-            <span className="flex-1 shrink-0 text-right text-base text-neutral-500">
-              {format(parseISO(post.publishedAt), 'LLLL d, yyyy')}
-            </span>
-            {/* <div className="not-prose flex flex-col space-y-4 rounded-md p-4 hover:bg-zinc-800">
-              <div className="flex flex-col-reverse items-start justify-between sm:flex-row">
-                <h2 className="flex-[2_2_0%] font-heading text-xl">
-                  {post.title}
-                </h2>
-                <span className="flex-1 shrink-0 text-right font-normal text-body-secondary">
-                  {format(parseISO(post.publishedAt), 'LLLL d, yyyy')}
-                </span>
-              </div>
-              <p className="font-normal text-body">{post.summary}</p>
-            </div> */}
+            <li className="flex items-center justify-between  py-4 hover:!opacity-100 group-hover:opacity-50">
+              <h2 className="flex-[2_2_0%] font-heading text-lg">
+                {post.title}
+              </h2>
+              <span className="flex-1 shrink-0 text-right font-normal text-body-secondary">
+                {format(parseISO(post.publishedAt), 'LLLL d, yyyy')}
+              </span>
+            </li>
           </Link>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

@@ -31,7 +31,9 @@ export function Footer() {
         </li>
       </ul>
 
-      <span className="font-heading">© Marko Djordjevic 2023</span>
+      <span className="font-heading text-body-secondary">
+        © Marko Djordjevic 2023
+      </span>
     </footer>
   );
 }
