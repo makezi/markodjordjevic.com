@@ -5,6 +5,8 @@ import { Metadata } from 'next';
 import { Post, allPosts } from 'contentlayer/generated';
 import { env } from '@/lib/env.mjs';
 
+import { ViewCounter } from '../_components/view-counter';
+
 export function generateStaticParams() {
   return allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
 }
@@ -51,6 +53,7 @@ export default function PostPage({ params }: { params: Post }) {
         <span className="text-body-secondary">
           {format(parseISO(post.publishedAt), 'LLLL d, yyyy')}
         </span>
+        <ViewCounter slug={post.slug} shouldTrack />
       </div>
       <Content />
     </article>

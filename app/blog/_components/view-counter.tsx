@@ -1,0 +1,40 @@
+'use client';
+
+// import useSWR from 'swr';
+import useSWRMutation from 'swr/mutation';
+import { useEffect } from 'react';
+
+import { Post } from '@/.contentlayer/generated';
+
+// const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+async function incrementCount(url: string) {
+  await fetch(url, { method: 'POST' });
+}
+
+// type View = {
+//   slug: string;
+//   views: number;
+// };
+
+export function ViewCounter({
+  slug,
+  shouldTrack = false
+}: {
+  slug: Post['slug'];
+  shouldTrack?: boolean;
+}) {
+  // const { data } = useSWR<View>(`/api/views/${slug}`, fetcher);
+  const { trigger } = useSWRMutation(`/api/views/${slug}`, incrementCount);
+
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') return;
+
+    if (shouldTrack) {
+      void trigger();
+    }
+  }, [shouldTrack, trigger]);
+
+  return null;
+  // return <span>{data?.views ?? 0} views</span>;
+}
