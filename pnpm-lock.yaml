@@ -7,6 +7,9 @@ dependencies:
   '@t3-oss/env-nextjs':
     specifier: ^0.2.2
     version: 0.2.2(zod@3.21.4)
+  '@upstash/redis':
+    specifier: ^1.20.6
+    version: 1.20.6
   '@vercel/analytics':
     specifier: ^0.1.11
     version: 0.1.11(react@18.2.0)
@@ -37,6 +40,9 @@ dependencies:
   reading-time:
     specifier: ^1.5.0
     version: 1.5.0
+  swr:
+    specifier: ^2.1.5
+    version: 2.1.5(react@18.2.0)
   tailwind-merge:
     specifier: ^1.11.0
     version: 1.11.0
@@ -1814,6 +1820,17 @@ packages:
       '@typescript-eslint/types': 5.57.0
       eslint-visitor-keys: 3.4.0
     dev: true
+
+  /@upstash/redis@1.20.6:
+    resolution:
+      {
+        integrity: sha512-q1izaYEUsq/WiXNOjf4oOjFZe8fIeBSZN8d5cEyOD4nem+zxc4jccieorQQrNlEahKPE1ZYLzVEkMODRUfch2g==
+      }
+    dependencies:
+      isomorphic-fetch: 3.0.0
+    transitivePeerDependencies:
+      - encoding
+    dev: false
 
   /@vercel/analytics@0.1.11(react@18.2.0):
     resolution:
@@ -4364,6 +4381,18 @@ packages:
       }
     dev: true
 
+  /isomorphic-fetch@3.0.0:
+    resolution:
+      {
+        integrity: sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==
+      }
+    dependencies:
+      node-fetch: 2.6.9
+      whatwg-fetch: 3.6.2
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
   /jiti@1.18.2:
     resolution:
       {
@@ -5370,6 +5399,21 @@ packages:
         integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==
       }
     engines: { node: '>=10.5.0' }
+    dev: false
+
+  /node-fetch@2.6.9:
+    resolution:
+      {
+        integrity: sha512-DJm/CJkZkRjKKj4Zi4BsKVZh3ValV5IR5s7LVZnW+6YMh0W1BfNA8XSs6DLMGYlId5F3KnA70uu2qepcR08Qqg==
+      }
+    engines: { node: 4.x || >=6.0.0 }
+    peerDependencies:
+      encoding: ^0.1.0
+    peerDependenciesMeta:
+      encoding:
+        optional: true
+    dependencies:
+      whatwg-url: 5.0.0
     dev: false
 
   /node-fetch@3.3.1:
@@ -6584,6 +6628,18 @@ packages:
       }
     engines: { node: '>= 0.4' }
 
+  /swr@2.1.5(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-/OhfZMcEpuz77KavXST5q6XE9nrOBOVcBLWjMT+oAE/kQHyE3PASrevXCtQDZ8aamntOfFkbVJp7Il9tNBQWrw==
+      }
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0(react@18.2.0)
+    dev: false
+
   /synckit@0.8.5:
     resolution:
       {
@@ -6704,6 +6760,13 @@ packages:
     resolution:
       {
         integrity: sha512-y/mWCZinnvxjTKYhJ+pYxwD0mRLVvOtdS2Awbgxln6iEnt4rk0yBxeSBHkGJcPucRiG0e55mwWp+g/05rsrd6w==
+      }
+    dev: false
+
+  /tr46@0.0.3:
+    resolution:
+      {
+        integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==
       }
     dev: false
 
@@ -6960,6 +7023,17 @@ packages:
       punycode: 2.3.0
     dev: true
 
+  /use-sync-external-store@1.2.0(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /util-deprecate@1.0.2:
     resolution:
       {
@@ -7034,6 +7108,30 @@ packages:
         integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==
       }
     engines: { node: '>= 8' }
+    dev: false
+
+  /webidl-conversions@3.0.1:
+    resolution:
+      {
+        integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==
+      }
+    dev: false
+
+  /whatwg-fetch@3.6.2:
+    resolution:
+      {
+        integrity: sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==
+      }
+    dev: false
+
+  /whatwg-url@5.0.0:
+    resolution:
+      {
+        integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==
+      }
+    dependencies:
+      tr46: 0.0.3
+      webidl-conversions: 3.0.1
     dev: false
 
   /which-boxed-primitive@1.0.2:

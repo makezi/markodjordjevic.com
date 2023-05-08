@@ -26,7 +26,7 @@ export default function HomePage() {
         you as soon as I can!
       </p>
 
-      <ul className="group -ml-4 pl-0">
+      <ul className="group -ml-4 w-fit pl-0">
         <li className="my-0 flex">
           <a
             href="https://twitter.com/makezid"
