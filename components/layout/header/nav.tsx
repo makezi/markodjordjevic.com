@@ -26,7 +26,7 @@ export function Nav() {
 
   return (
     <nav>
-      <ul className="-mr-2 flex md:mr-0 md:flex-col">
+      <ul className="-mr-2 flex items-center">
         {Object.entries(navItems).map(([path, { name }]) => {
           const isActive = path === pathname;
 
@@ -35,7 +35,7 @@ export function Nav() {
               <Link
                 href={path}
                 className={cn(
-                  'inline-block h-full w-full px-2 py-1 font-heading text-lg text-body-secondary transition-all hover:text-body md:px-0',
+                  'inline-block h-full w-full px-2 py-1 font-heading text-lg text-body-secondary transition-all hover:text-body',
                   {
                     'text-body': isActive
                   }

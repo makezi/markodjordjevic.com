@@ -1,6 +1,6 @@
 import { Redis } from '@upstash/redis';
 
-import { env } from './env.mjs';
+import env from './env';
 
 export const redis = new Redis({
   url: 'https://proven-mollusk-33857.upstash.io',

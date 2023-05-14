@@ -1,0 +1,97 @@
+---
+title: Why React Needs Keys for Rendering Lists
+summary: n/a
+publishedAt: '2023-05-09'
+tags:
+  - react
+  - typescript
+  - learning
+---
+
+If you have ever used React to render a list of items, you probably know that you need to provide a `key` attribute for each item. But do you know why keys are important and what happens if you use the wrong key? In this post, I will explain why using index as a key for a list is bad and what are some better alternatives.
+
+## What are keys and why are they important?
+
+Keys are special string attributes that help React identify which items have changed, are added, or are removed from a list. Keys should be unique and stable among the list items, meaning that they should not change or repeat over time.
+
+Keys are important because they allow React to optimize the rendering process and avoid unnecessary re-renders or DOM manipulations. React uses a diffing algorithm to compare the previous and the next list of items and determine which items need to be updated, inserted, moved, or deleted. Keys help React to match the items by their identity and minimize the changes in the DOM tree.
+
+## What happens if you use index as a key?
+
+A common mistake that many developers make is to use the index of the item as a key. For example:
+
+```tsx
+const listItems = numbers.map((number, index) => <li key={index}>{number}</li>);
+```
+
+## Performance Issues
+
+This might seem like a simple and convenient solution, but it can lead to serious problems when the list items are added, removed, or reordered. Let’s see why.
+
+Using index as a key can cause performance issues because it can force React to re-render more components than necessary. For example, suppose you have a list of todo items that you can mark as done by clicking on them. Each item has a `done` state that determines its appearance. If you use index as a key, this is what happens when you click on the first item:
+
+As you can see, React re-renders all the items after the one that was clicked, even though their data did not change. This is because React cannot tell which items are the same by their index, since the index changes when an item is removed from the list. This means that React has to create new DOM nodes for each item and replace the old ones, which is inefficient and wasteful.
+
+## Unexpected Behaviour
+
+Using index as a key can also cause unexpected behavior because it can make React reuse the wrong DOM nodes for different components. For example, suppose you have a list of input fields that you can add or remove dynamically. Each input field has a `value` state that stores its text. If you use index as a key, this is what happens when you add a new input field at the beginning of the list:
+
+As you can see, React reuses the DOM nodes of the existing input fields and assigns them to the new items by their index. This means that the input fields keep their old values and lose their focus, which is not what we want. This is because React cannot tell which input fields are new or old by their index, since the index changes when an item is added to the list. This means that React has to update the props and state of each input field and sync them with the DOM nodes, which is confusing and error-prone.
+
+## What are some alternatives to using index as a key?
+
+As we have seen, using index as a key for a list is bad and should be avoided whenever possible. But what are some better alternatives? Here are some suggestions:
+
+### Use unique and stable IDs from your data
+
+The best way to pick a key is to use a string that uniquely identifies an item among its siblings. Most often, you would use IDs from your data as keys, if available. For example:
+
+```tsx
+const todoItems = todos.map((todo) => <li key={todo.id}>{todo.text}</li>);
+```
+
+This way, React can track which items have changed, are added, or are removed by their ID, regardless of their position in the list. This ensures optimal performance and correct behavior.
+
+```tsx
+import React, { useState } from 'react';
+
+function TodoItem({ todo, onToggle }) {
+  return (
+    <li
+      style={{
+        textDecoration: todo.done ? 'line-through' : 'none'
+      }}
+      onClick={() => onToggle(todo.id)}
+    >
+      {todo.text}
+    </li>
+  );
+}
+
+function TodoList() {
+  const [todos, setTodos] = useState([
+    { id: 1, text: 'Learn React', done: false },
+    { id: 2, text: 'Build a todo app', done: false },
+    { id: 3, text: 'Deploy to Netlify', done: false }
+  ]);
+
+  const handleToggle = (id) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, done: !todo.done } : todo
+      )
+    );
+  };
+
+  return (
+    <ul>
+      {todos.map((todo, index) => (
+        // Using index as a key
+        <TodoItem key={index} todo={todo} onToggle={handleToggle} />
+      ))}
+    </ul>
+  );
+}
+
+export default TodoList;
+```

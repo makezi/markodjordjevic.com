@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import './lib/env.mjs';
-import { withContentlayer } from 'next-contentlayer';
+// import './lib/env.js/index.js';
+require('./lib/env');
+// import { withContentlayer } from 'next-contentlayer';
+const { withContentlayer } = require('next-contentlayer');
 
 const ContentSecurityPolicy = `
     default-src 'self' vercel.live;
@@ -40,11 +42,11 @@ const securityHeaders = [
   {
     key: 'Referrer-Policy',
     value: 'origin-when-cross-origin'
-  },
-  {
-    key: 'Content-Security-Policy',
-    value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
   }
+  // {
+  //   key: 'Content-Security-Policy',
+  //   value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
+  // }
 ];
 
 /** @type {import('next').NextConfig} */
@@ -62,8 +64,10 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp']
   },
   experimental: {
-    appDir: true
+    appDir: true,
+    logging: 'verbose'
   },
+  swcMinify: true,
   eslint: {
     ignoreDuringBuilds: true
   },
@@ -72,4 +76,5 @@ const nextConfig = {
   }
 };
 
-export default withContentlayer(nextConfig);
+// export default withContentlayer(nextConfig);
+module.exports = withContentlayer(nextConfig);
