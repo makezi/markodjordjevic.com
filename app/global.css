@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.prose img {
+  margin: 0 auto;
+}
+
 .prose code:not([data-language]) {
   @apply border border-neutral-300 font-mono p-1 bg-neutral-300 rounded before:content-none after:content-none text-sm;
 }

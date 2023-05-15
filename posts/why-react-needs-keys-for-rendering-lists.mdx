@@ -11,9 +11,11 @@ tags:
 If you have ever used React to render a list of items (which is quite common) then you would probably know that you would need to provide a `key` prop for each item to avoid this warning:
 If you have ever used React to render a list of items (which is quite common) then you would probably know that you would need to provide a `key` prop for each item to avoid this warning:
 
-<aside>🚫 Each child in a list should have a unique "key" prop.</aside>
+<Callout type="error" icon={<CrossIcon />}>
+  Warning: Each child in a list should have a unique "key" prop.
+</Callout>
 
-Don't worry if you forget to do so because I often do this quite a few times as I'm doing prototypes for example. In moments like these you would probably think "Oh, I'll just pass the index as the key and call it a day!"" In some situations this is actually considered OK. But in others, this is considered an anti-pattern. Why is that?
+Don't worry if you forget to do so because I often do this quite a few times as I'm doing prototypes for example. In moments like these you would probably think _"Oh, I'll just pass the index as the key and call it a day!"_ In some situations this is actually considered OK. But in others, this is considered an anti-pattern. Why is that?
 
 React uses these keys to identify which items have been updted, added or removed from the list. In other words, it helps to avoid unnecessary re-renders (via DOM manipulations) and lost state associated with the items.
 
@@ -62,29 +64,31 @@ function List() {
 
 Will render:
 
-SHOW IMAGE OF RENDERED LIST
+<Image
+  alt="rendered-list"
+  src="/images/posts/why-react-needs-keys-for-rendering-lists/list.png"
+  width={329}
+  height={159}
+/>
 
 Now let's say we check the first item (`Item 1`) in the list and then click the `Add Item` button, what do you think will happen? I'll give you a moment to think.
 
 <br />
-<br />
-<br />
 3...
-<br />
-<br />
 <br />
 2...
 <br />
-<br />
-<br />
 1...
-<br />
-<br />
 <br />
 
 If you said that the newly added `Item 4` item will be checked instead of `Item 1` then you would be correct! As illustrated:
 
-SHOW GIF HERE!
+<Image
+  alt="rendered-list"
+  src="/images/posts/why-react-needs-keys-for-rendering-lists/index-key.gif"
+  width={330}
+  height={156}
+/>
 
 You might be confused as to why this is happening. But don't worry - let's breakdown and have a look at how React is rendering this list in the DOM. Initially our list would look like the following:
 
@@ -187,7 +191,7 @@ The best way to fix this is to use a value which uniquely identifies an item amo
 </ul>
 ```
 
-This would be the most ideal solution if available from your dataset. In other situations however where your data may not have unique IDs or values (and you have no control over said data) then the next best thing is to generate unique IDs yourself. There are many ways we can accomplish this. For instance, using the [https://www.npmjs.com/package/uuidv4](https://www.npmjs.com/package/uuidv4) package:
+This would be the most ideal solution if available from your dataset. In other situations however where your data may not have unique IDs or values (and you have no control over said data) then the next best thing is to generate unique IDs yourself. There are many ways we can accomplish this. For instance, using the [uuidv4](https://www.npmjs.com/package/uuidv4) package:
 
 ```tsx /uuid()/ {2}
 import { useState } from 'react';
@@ -231,7 +235,12 @@ function List() {
 
 Using a unique identifier we can now see that we have the correct state associated with the corresponding item:
 
-SHOW GIF HERE
+<Image
+  alt="rendered-list"
+  src="/images/posts/why-react-needs-keys-for-rendering-lists/id-key.gif"
+  width={330}
+  height={156}
+/>
 
 ## Are they any situations where it's safe to use index?
 
