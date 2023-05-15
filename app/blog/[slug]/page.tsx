@@ -1,11 +1,10 @@
-import { getMDXComponent } from 'next-contentlayer/hooks';
 import { format, parseISO } from 'date-fns';
 import { Metadata } from 'next';
-import { Code } from 'bright';
 
 import { Post, allPosts } from 'contentlayer/generated';
 import env from '@/lib/env';
 
+import { MDXComponents } from '../_components/mdx-components';
 import { ViewCounter } from '../_components/view-counter';
 
 export function generateStaticParams() {
@@ -38,17 +37,12 @@ export function generateMetadata({
   };
 }
 
-Code.lineNumbers = true;
-Code.theme = 'github-dark';
-
 export default function PostPage({ params }: { params: Post }) {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
 
   if (!post) {
     return;
   }
-
-  const Content = getMDXComponent(post.body.code);
 
   return (
     <article className="container prose">
@@ -60,17 +54,7 @@ export default function PostPage({ params }: { params: Post }) {
         <ViewCounter slug={post.slug} shouldTrack />
       </div>
 
-      <Content
-        components={{
-          pre: (content) => (
-            // @ts-expect-error Async Server Component
-            <Code
-              className="!-mx-4 md:!-mx-14 lg:!-mx-20 [&>pre]:rounded-none"
-              {...content}
-            />
-          )
-        }}
-      />
+      <MDXComponents code={post.body.code} />
     </article>
   );
 }

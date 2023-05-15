@@ -8,90 +8,244 @@ tags:
   - learning
 ---
 
-If you have ever used React to render a list of items, you probably know that you need to provide a `key` attribute for each item. But do you know why keys are important and what happens if you use the wrong key? In this post, I will explain why using index as a key for a list is bad and what are some better alternatives.
+If you have ever used React to render a list of items (which is quite common) then you would probably know that you would need to provide a `key` prop for each item to avoid this warning:
+If you have ever used React to render a list of items (which is quite common) then you would probably know that you would need to provide a `key` prop for each item to avoid this warning:
 
-## What are keys and why are they important?
+<aside>🚫 Each child in a list should have a unique "key" prop.</aside>
 
-Keys are special string attributes that help React identify which items have changed, are added, or are removed from a list. Keys should be unique and stable among the list items, meaning that they should not change or repeat over time.
+Don't worry if you forget to do so because I often do this quite a few times as I'm doing prototypes for example. In moments like these you would probably think "Oh, I'll just pass the index as the key and call it a day!"" In some situations this is actually considered OK. But in others, this is considered an anti-pattern. Why is that?
 
-Keys are important because they allow React to optimize the rendering process and avoid unnecessary re-renders or DOM manipulations. React uses a diffing algorithm to compare the previous and the next list of items and determine which items need to be updated, inserted, moved, or deleted. Keys help React to match the items by their identity and minimize the changes in the DOM tree.
+React uses these keys to identify which items have been updted, added or removed from the list. In other words, it helps to avoid unnecessary re-renders (via DOM manipulations) and lost state associated with the items.
 
-## What happens if you use index as a key?
+## What happens if we use index as the key?
 
-A common mistake that many developers make is to use the index of the item as a key. For example:
-
-```tsx
-const listItems = numbers.map((number, index) => <li key={index}>{number}</li>);
-```
-
-## Performance Issues
-
-This might seem like a simple and convenient solution, but it can lead to serious problems when the list items are added, removed, or reordered. Let’s see why.
-
-Using index as a key can cause performance issues because it can force React to re-render more components than necessary. For example, suppose you have a list of todo items that you can mark as done by clicking on them. Each item has a `done` state that determines its appearance. If you use index as a key, this is what happens when you click on the first item:
-
-As you can see, React re-renders all the items after the one that was clicked, even though their data did not change. This is because React cannot tell which items are the same by their index, since the index changes when an item is removed from the list. This means that React has to create new DOM nodes for each item and replace the old ones, which is inefficient and wasteful.
-
-## Unexpected Behaviour
-
-Using index as a key can also cause unexpected behavior because it can make React reuse the wrong DOM nodes for different components. For example, suppose you have a list of input fields that you can add or remove dynamically. Each input field has a `value` state that stores its text. If you use index as a key, this is what happens when you add a new input field at the beginning of the list:
-
-As you can see, React reuses the DOM nodes of the existing input fields and assigns them to the new items by their index. This means that the input fields keep their old values and lose their focus, which is not what we want. This is because React cannot tell which input fields are new or old by their index, since the index changes when an item is added to the list. This means that React has to update the props and state of each input field and sync them with the DOM nodes, which is confusing and error-prone.
-
-## What are some alternatives to using index as a key?
-
-As we have seen, using index as a key for a list is bad and should be avoided whenever possible. But what are some better alternatives? Here are some suggestions:
-
-### Use unique and stable IDs from your data
-
-The best way to pick a key is to use a string that uniquely identifies an item among its siblings. Most often, you would use IDs from your data as keys, if available. For example:
+So if we were to use the index of an item as the key then essentially we are suggesting to React that the order of items in the list is what identifies them, which is not always the case. Let's look at an example of a list:
 
 ```tsx
-const todoItems = todos.map((todo) => <li key={todo.id}>{todo.text}</li>);
-```
+import { useState } from 'react';
 
-This way, React can track which items have changed, are added, or are removed by their ID, regardless of their position in the list. This ensures optimal performance and correct behavior.
-
-```tsx
-import React, { useState } from 'react';
-
-function TodoItem({ todo, onToggle }) {
-  return (
-    <li
-      style={{
-        textDecoration: todo.done ? 'line-through' : 'none'
-      }}
-      onClick={() => onToggle(todo.id)}
-    >
-      {todo.text}
-    </li>
-  );
-}
-
-function TodoList() {
-  const [todos, setTodos] = useState([
-    { id: 1, text: 'Learn React', done: false },
-    { id: 2, text: 'Build a todo app', done: false },
-    { id: 3, text: 'Deploy to Netlify', done: false }
+function List() {
+  const [list, setList] = useState([
+    { id: 1, text: 'Item 1' },
+    { id: 2, text: 'Item 2' },
+    { id: 3, text: 'Item 3' }
   ]);
 
-  const handleToggle = (id) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, done: !todo.done } : todo
-      )
-    );
+  const addItem = () => {
+    setList((oldList) => [
+      {
+        id: oldList.length + 1,
+        text: `Item ${oldList.length + 1}`,
+        done: false
+      },
+      ...oldList
+    ]);
   };
 
   return (
-    <ul>
-      {todos.map((todo, index) => (
-        // Using index as a key
-        <TodoItem key={index} todo={todo} onToggle={handleToggle} />
-      ))}
-    </ul>
+    <div>
+      <button onClick={addItem}>Add Item</button>
+      <ul>
+        {list.map((item, index) => (
+          <li key={index}>
+            <label>
+              <input type="checkbox" />
+              {item.text}
+            </label>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
-
-export default TodoList;
 ```
+
+Will render:
+
+SHOW IMAGE OF RENDERED LIST
+
+Now let's say we check the first item (`Item 1`) in the list and then click the `Add Item` button, what do you think will happen? I'll give you a moment to think.
+
+<br />
+<br />
+<br />
+3...
+<br />
+<br />
+<br />
+2...
+<br />
+<br />
+<br />
+1...
+<br />
+<br />
+<br />
+
+If you said that the newly added `Item 4` item will be checked instead of `Item 1` then you would be correct! As illustrated:
+
+SHOW GIF HERE!
+
+You might be confused as to why this is happening. But don't worry - let's breakdown and have a look at how React is rendering this list in the DOM. Initially our list would look like the following:
+
+```tsx
+<ul>
+  <li key={0}>
+    <label>
+      <input type="checkbox" />
+      Item 1
+    </label>
+  </li>
+  <li key={1}>
+    <label>
+      <input type="checkbox" />
+      Item 2
+    </label>
+  </li>
+  <li key={2}>
+    <label>
+      <input type="checkbox" />
+      Item 3
+    </label>
+  </li>
+</ul>
+```
+
+Now we check the first item (`Item 1`) in the list:
+
+```tsx {4}
+<ul>
+  <li key={0}>
+    <label>
+      <input type="checkbox" checked />
+      Item 1
+    </label>
+  </li>
+  <li key={1}>
+    <label>
+      <input type="checkbox" />
+      Item 2
+    </label>
+  </li>
+  <li key={2}>
+    <label>
+      <input type="checkbox" />
+      Item 3
+    </label>
+  </li>
+</ul>
+```
+
+And then when we click on the `Add Item` button, a new item (`Item 4`) is rendered:
+
+```tsx {2-7}
+<ul>
+  <li key={0}>
+    <label>
+      <input type="checkbox" checked />
+      Item 4
+    </label>
+  </li>
+  <li key={1}>
+    <label>
+      <input type="checkbox" />
+      Item 1
+    </label>
+  </li>
+  <li key={2}>
+    <label>
+      <input type="checkbox" />
+      Item 2
+    </label>
+  </li>
+  <li key={3}>
+    <label>
+      <input type="checkbox" />
+      Item 3
+    </label>
+  </li>
+</ul>
+```
+
+Notice how the key values have changed. In particular, React now sees `Item 4` as having the key `0` and being **checked** rather than `Item 1`. Since the list had state associated with the items, they are lost when the list is updated. This is why using the index as a key can result in an unstable identity as well as being hard to track for errors in more complex situations.
+
+## How do we fix this?
+
+The best way to fix this is to use a value which uniquely identifies an item amongst its siblings. In the above example, you would use the `id` as your key.
+
+```tsx /item.id/2
+<ul>
+  {list.map((item) => (
+    // `item.id` instead of `index`
+    <li key={item.id}>
+      <label>
+        <input type="checkbox" />
+        {item.text}
+      </label>
+    </li>
+  ))}
+</ul>
+```
+
+This would be the most ideal solution if available from your dataset. In other situations however where your data may not have unique IDs or values (and you have no control over said data) then the next best thing is to generate unique IDs yourself. There are many ways we can accomplish this. For instance, using the [https://www.npmjs.com/package/uuidv4](https://www.npmjs.com/package/uuidv4) package:
+
+```tsx /uuid()/ {2}
+import { useState } from 'react';
+import { uuid } from 'uuidv4';
+
+function List() {
+  const [list, setList] = useState([
+    { id: uuid(), text: 'Item 1' },
+    { id: uuid(), text: 'Item 2' },
+    { id: uuid(), text: 'Item 3' }
+  ]);
+
+  const addItem = () => {
+    setList((oldList) => [
+      {
+        id: uuid(),
+        text: `Item ${oldList.length + 1}`,
+        done: false
+      },
+      ...oldList
+    ]);
+  };
+
+  return (
+    <div>
+      <button onClick={addItem}>Add Item</button>
+      <ul>
+        {list.map((item) => (
+          <li key={item.id}>
+            <label>
+              <input type="checkbox" />
+              {item.text}
+            </label>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+Using a unique identifier we can now see that we have the correct state associated with the corresponding item:
+
+SHOW GIF HERE
+
+## Are they any situations where it's safe to use index?
+
+**Yes!** there are some situations where it IS safe to use the index as the key for an item. You just have to be mindful of if/how the list is manipulated. Here are those said scenarios:
+
+1. If the list is static: the list is completely static and will not change. This includes the list never being reordered, filtered, updated, etc.
+2. This items in the list are simple and have no state associated with them.
+
+When the above two scenarios are **both** apply then it is **indeed safe to use the index as the key**.
+
+## Does this all apply to React Server Components (RSC)?
+
+**Yes!** The output of a server component can be refetched manually whether that may be after a mutation or after navigation. You still want React to know the keys so it can render and reorder the items appropriately.
+
+## Conclusion
+
+As shown, using the index as the key value for items in lists should be avoided in most situations due to the potential issues such as lost state, re-renders and unstable identities. Whether it be in regular React components or in React Server Components (RSC), it is crucial to be mindful of what you use as the value for key as it plays a vital role in rendering and manipulating items effectively.
