@@ -33,13 +33,6 @@ export const metadata: Metadata = {
     description: 'Welcome to my little corner of the web.',
     url: env.DOMAIN,
     siteName: 'Marko Djordjevic',
-    images: [
-      {
-        url: `${env.DOMAIN}/og.png`,
-        width: 1920,
-        height: 1080
-      }
-    ],
     locale: 'en-US',
     type: 'website'
   },
@@ -56,6 +49,11 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1
     }
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@makezid',
+    creator: '@makezid'
   }
 };
 
