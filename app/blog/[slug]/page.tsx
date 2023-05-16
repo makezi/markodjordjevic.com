@@ -1,10 +1,10 @@
-import { getMDXComponent } from 'next-contentlayer/hooks';
 import { format, parseISO } from 'date-fns';
 import { Metadata } from 'next';
 
 import { Post, allPosts } from 'contentlayer/generated';
-import { env } from '@/lib/env.mjs';
+import env from '@/lib/env';
 
+import { MDXComponents } from '../_components/mdx-components';
 import { ViewCounter } from '../_components/view-counter';
 
 export function generateStaticParams() {
@@ -44,8 +44,6 @@ export default function PostPage({ params }: { params: Post }) {
     return;
   }
 
-  const Content = getMDXComponent(post.body.code);
-
   return (
     <article className="container prose">
       <div className="mb-8 flex flex-col border-b border-neutral-300 pb-8">
@@ -55,7 +53,8 @@ export default function PostPage({ params }: { params: Post }) {
         </span>
         <ViewCounter slug={post.slug} shouldTrack />
       </div>
-      <Content />
+
+      <MDXComponents code={post.body.code} slug={post.slug} />
     </article>
   );
 }

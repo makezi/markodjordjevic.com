@@ -3,19 +3,22 @@
 // import useSWR from 'swr';
 import useSWRMutation from 'swr/mutation';
 import { useEffect } from 'react';
+// import { z } from 'zod';
 
 import { Post } from '@/.contentlayer/generated';
+
+// const viewSchema = z.object({
+//   slug: z.string(),
+//   views: z.number()
+// });
+
+// type View = z.infer<typeof viewSchema>;
 
 // const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 async function incrementCount(url: string) {
   await fetch(url, { method: 'POST' });
 }
-
-// type View = {
-//   slug: string;
-//   views: number;
-// };
 
 export function ViewCounter({
   slug,
