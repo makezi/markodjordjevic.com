@@ -1,6 +1,6 @@
 import './global.css';
 
-import { Inter } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
@@ -16,10 +16,10 @@ const calSans = localFont({
   variable: '--font-cal-sans'
 });
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter'
+  variable: '--font-jakarta'
 });
 
 export const metadata: Metadata = {
@@ -68,7 +68,7 @@ export default function RootLayout({
       className={cn(
         'bg-neutral-200 font-body text-body antialiased',
         calSans.variable,
-        inter.variable
+        jakarta.variable
       )}
     >
       <body className="mx-auto flex min-h-screen max-w-4xl flex-col justify-between">

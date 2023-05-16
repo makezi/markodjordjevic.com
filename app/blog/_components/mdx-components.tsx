@@ -39,7 +39,7 @@ export function MDXComponents({ code, slug }: { code: string; slug: string }) {
       components={{
         pre: ({ className, ...props }) => (
           <pre
-            className={cn('-mx-4 md:-mx-14 lg:-mx-20', className)}
+            className={cn('-mx-4 md:-mx-10 lg:-mx-20', className)}
             {...props}
           />
         ),
