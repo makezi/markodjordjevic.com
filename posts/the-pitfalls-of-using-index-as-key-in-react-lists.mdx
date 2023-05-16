@@ -155,7 +155,7 @@ Notice how the key values have changed. In particular, React now sees `Item 4` a
 
 ## Use an unique stable identifier
 
-The best way to fix this is to use a value which uniquely identifies an item amongst its siblings. The most ideal solution is would usually be to use an `id` attribute in the dataset, if available. In other situations however where your data may not have unique IDs or values (and you have no control over said data) then the next best thing is to generate unique IDs yourself. There are many ways we can accomplish this. For instance, using the [uuidv4](https://www.npmjs.com/package/uuidv4) package:
+The best way to fix this is to use a value which uniquely identifies an item amongst its siblings. The most ideal solution would usually be to use an `id` attribute in the dataset, if available. In other situations however where your data may not have unique IDs or values (and you have no control over said data) then the next best thing is to generate unique IDs yourself. There are many ways we can accomplish this. For instance, using the [uuidv4](https://www.npmjs.com/package/uuidv4) package:
 
 ```tsx /uuid()/ {2}
 import { useState } from 'react';
