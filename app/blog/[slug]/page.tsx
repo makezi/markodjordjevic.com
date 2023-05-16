@@ -54,7 +54,7 @@ export default function PostPage({ params }: { params: Post }) {
         <ViewCounter slug={post.slug} shouldTrack />
       </div>
 
-      <MDXComponents code={post.body.code} />
+      <MDXComponents code={post.body.code} slug={post.slug} />
     </article>
   );
 }
