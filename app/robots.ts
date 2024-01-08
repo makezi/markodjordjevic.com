@@ -1,5 +1,3 @@
-import env from '@/lib/env';
-
 export default function robots() {
   return {
     rules: [
@@ -7,7 +5,6 @@ export default function robots() {
         userAgent: '*'
       }
     ],
-    sitemap: `${env.DOMAIN}/sitemap.xml`,
-    host: env.DOMAIN
+    host: 'https://www.markodjordjevic.com'
   };
 }
