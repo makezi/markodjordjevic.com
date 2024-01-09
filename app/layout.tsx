@@ -1,10 +1,16 @@
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
+
+import { cn } from '@/lib/utils';
+
+import { Header } from './_components/header';
 
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+import { Socials } from './_components/socials';
+
+const poppins = Poppins({ subsets: ['latin'], weight: ['500', '600', '700'] });
 
 export const metadata: Metadata = {
   title: {
@@ -43,8 +49,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={cn(
+          poppins.className,
+          'mx-auto max-w-screen-lg py-20 antialiased'
+        )}
+      >
+        <Header />
         {children}
+        <div className="block px-6 pt-10 md:hidden">
+          <Socials />
+        </div>
         <Analytics />
       </body>
     </html>
