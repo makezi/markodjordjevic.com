@@ -2,8 +2,11 @@ name: CI
 
 on:
   pull_request:
-    branches: ['*']
-  merge_group:
+    types: [opened, synchronize]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 # To use Remote Caching, uncomment the next lines and follow the steps below.
 env:
@@ -21,9 +24,9 @@ jobs:
           fetch-depth: 0
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 18
 
       - uses: pnpm/action-setup@v2.2.4
         name: Install pnpm
@@ -35,6 +38,7 @@ jobs:
         id: pnpm-cache
         run: |
           echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
       - uses: actions/cache@v3
         name: Setup pnpm cache
         with:
@@ -44,7 +48,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --child-concurrency 3
 
       - name: Run ESLint
         run: pnpm lint
@@ -81,7 +85,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --child-concurrency 3
 
       - name: Run Prettier
         run: pnpm format --list-different

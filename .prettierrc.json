@@ -1,5 +1,15 @@
 {
   "$schema": "https://json.schemastore.org/prettierrc",
+  "trailingComma": "none",
   "singleQuote": true,
-  "trailingComma": "none"
+  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "<BUILT_IN_MODULES>",
+    "",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^@/*/(.*)$",
+    "",
+    "^[./]"
+  ]
 }
